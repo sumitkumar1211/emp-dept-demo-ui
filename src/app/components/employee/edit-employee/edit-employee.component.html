@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>Edit Employee</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/employees" class="btn btn-success back"><i class="fas fa-arrow-circle-left"></i> &nbsp;Back</a>
+          </div>
+        </div>
+      </div>
+      <form [formGroup]="employeeForm">
+        <div class="table-content">
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="id" class="p-t-b-10">Id<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input formControlName="id" class="form-control" />
+              <!-- <div *ngIf="id.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!id?.errors?.['required']">Id is required</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="name" class="p-t-b-10">Name<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input formControlName="name" class="form-control" placeholder="Your Name" />
+              <!-- <div *ngIf="name.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!name?.errors?.['required']">Name is required</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="name" class="p-t-b-10">Departments<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <ng-multiselect-dropdown
+                formControlName="departments"
+                name="Departments"
+                [placeholder]="'Select Departments'"
+                [data]="dropdownList"
+                [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+              >
+                <ng-template #optionsTemplate let-item let-option="option" let-id="id" let-isSelected="isSelected">
+                  <div style="padding: 1px 10px; margin-right: 10px; right: 2px; top: -2px">
+                    <!-- <img [src]="getItems[id].image" style="width: 18px; margin: 0 20px" /> -->
+                    <!-- <label
+                      style="color: #333; min-width: 130px; font-weight: normal"
+                      [ngStyle]="{ 'font-weight': isSelected ? 'bold' : ' normal', color: getItems[id].isDisabled ? 'lightgrey' : '' }">{{ getItems[id].item_text }}</label> -->
+                  </div>
+                </ng-template>
+                <ng-template #optionSelectedTemplate let-option="option" let-id="id">
+                  <div>
+                    <!-- <img [src]="getItems[id].image" style="width: 18px; margin-right: 2px" /> -->
+                    {{ option }}
+                  </div>
+                </ng-template>
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

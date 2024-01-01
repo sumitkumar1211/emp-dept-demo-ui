@@ -10,6 +10,19 @@ trim_trailing_whitespace = true
 
 [*.ts]
 quote_type = single
+indent_style = space
+indent_size = 2
+
+[*.html]
+quote_type = single
+indent_style = space
+indent_size = 2
+max_line_length = 150
+
+[*.css]
+quote_type = single
+indent_style = space
+indent_size = 2
 
 [*.md]
 max_line_length = off

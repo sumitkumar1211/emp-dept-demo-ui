@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>View Employee</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/employees" class="btn btn-success back"><i class="fas fa-arrow-circle-left"></i> &nbsp;Back</a>
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped table-hover table-bordered table-content">
+        <tbody>
+          <tr>
+            <td>
+              <label><b>Id</b></label>
+            </td>
+            <td>
+              <span>{{ employee.id }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Name</b></label>
+            </td>
+            <td>
+              <span>{{ employee.name }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Departments</b></label>
+            </td>
+            <td>
+              <ul class="list-group list-group-horizontal">
+                <li class="list-group-item" *ngFor="let dept of employee.departments">
+                  <span>{{ dept.name }}</span>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

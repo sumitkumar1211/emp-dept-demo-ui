@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>Add Department</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/departments" class="btn btn-success back"><i class="fas fa-arrow-circle-left"></i> &nbsp;Back</a>
+          </div>
+        </div>
+      </div>
+      <form [formGroup]="form">
+        <div class="table-content">
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="name" class="p-t-b-10">Name<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input formControlName="name" class="form-control" placeholder="Your Name" />
+              <div *ngIf="form.controls['name'].errors" class="alert alert-danger validationError">
+                <div [hidden]="!form.controls['name'].errors['required']">Name is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="readOnly" class="p-t-b-10">ReadOnly<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <ng-select formControlName="readOnly" appearance="outline" (change)="onChange($event)">
+                <ng-option [value]="true">Yes</ng-option>
+                <ng-option [value]="false">No</ng-option>
+              </ng-select>
+            </div>
+          </div>
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

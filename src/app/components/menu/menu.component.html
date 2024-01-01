@@ -1,0 +1,26 @@
+<div>
+  <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs justify-content-left">
+    <li ngbDropdown class="nav-item">
+      <button type="button" class="nav-link" ngbDropdownToggle>Employee Management</button>
+      <div ngbDropdownMenu>
+        <button ngbDropdownItem routerLink="employees">Add</button>
+        <div class="dropdown-divider"></div>
+        <button ngbDropdownItem>Edit</button>
+        <div class="dropdown-divider"></div>
+        <button ngbDropdownItem>View</button>
+      </div>
+    </li>
+    <li ngbDropdown class="nav-item">
+      <button type="button" class="nav-link" ngbDropdownToggle>Department Management</button>
+      <div ngbDropdownMenu>
+        <button ngbDropdownItem routerLink="departments">Add</button>
+        <div class="dropdown-divider"></div>
+        <button ngbDropdownItem>Edit</button>
+        <div class="dropdown-divider"></div>
+        <button ngbDropdownItem>View</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>

@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Other commands help
+
+Generate a model class
+ng g class /models/employee --type=model <-- class will be created
+ng g i /models/employee --type=model <-- interface will be created
+ng add @ng-bootstrap/ng-bootstrap
+ng generate environments
+npm i ngx-toastr@16.2.0
+npm install @angular/animations --save
+npm install ng-multiselect-dropdown
+npm install --save @ng-select/ng-select@10.x

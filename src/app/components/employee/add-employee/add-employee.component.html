@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>Add Employee</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/employees" class="btn btn-success back"><i class="fas fa-arrow-circle-left"></i> &nbsp;Back</a>
+          </div>
+        </div>
+      </div>
+      <form [formGroup]="form">
+        <div class="table-content">
+          <!-- <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="id" class="p-t-b-10">Id<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input formControlName="id" class="form-control" />
+              <div *ngIf="form.controls['id'].errors" class="alert alert-danger validationError">
+                <div [hidden]="!form.controls['id'].errors['required']">Id is required</div>
+              </div>
+            </div>
+          </div> -->
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="name" class="p-t-b-10">Name<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input formControlName="name" class="form-control" placeholder="Your Name" />
+              <div *ngIf="form.controls['name'].errors" class="alert alert-danger validationError">
+                <div [hidden]="!form.controls['name'].errors['required']">Name is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="name" class="p-t-b-10">Departments<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <ng-select
+                formControlName="departments"
+                [items]="dropdownList"
+                [multiple]="true"
+                bindLabel="name"
+                groupBy="read_only"
+                [selectableGroup]="true"
+                [selectableGroupAsModel]="false"
+                [closeOnSelect]="false"
+                bindValue="selectedItems"
+                (change)="onChange($event)"
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

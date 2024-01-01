@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>Manage Departments</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <button class="btn btn-success" (click)="addEmployee()"><i class="fas fa-plus-circle"></i><span> ADD</span></button>
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped table-hover table-bordered table-content">
+        <thead>
+          <tr class="center-align">
+            <th>Id</th>
+            <th>Name</th>
+            <th>ReadOnly</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dept of model" class="center-align">
+            <td>{{ dept.id }}</td>
+            <td>{{ dept.name }}</td>
+            <td>{{ dept.readOnly }}</td>
+            <td>
+              <a href="#" [routerLink]="['/view-department/', dept.id]" class="btn btn-primary view"><i class="far fa-eye"></i></a>
+              <a href="#" [routerLink]="['/edit-department/', dept.id]" class="btn btn-success edit"><i class="fas fa-edit"></i></a>
+              <button type="button" (click)="deleteDepartmentConfirmation(dept)" class="btn btn-danger delete">
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td *ngIf="model.length == 0" colspan="6">No Employee Found</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

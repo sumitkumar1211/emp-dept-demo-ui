@@ -18,9 +18,9 @@
               <label for="name" class="p-t-b-10">Name<span class="requiredStar">*</span></label>
             </div>
             <div class="col-sm-9">
-              <input formControlName="name" class="form-control" placeholder="Your Name" />
-              <div *ngIf="form.controls['name'].errors" class="alert alert-danger validationError">
-                <div [hidden]="!form.controls['name'].errors['required']">Name is required</div>
+              <input formControlName="name" class="form-control" placeholder="Enter Department Name" />
+              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger validationError">
+                <div [hidden]="!name.errors?.['required']">Name is required</div>
               </div>
             </div>
           </div>

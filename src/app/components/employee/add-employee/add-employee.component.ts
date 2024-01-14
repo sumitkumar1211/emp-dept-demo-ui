@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { ToastrService } from 'ngx-toastr';
 import { Department } from 'src/app/models/department.model';
-import { Employee } from 'src/app/models/employee.model';
 import { DepartmentService } from 'src/app/services/department.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -14,8 +18,6 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./add-employee.component.css'],
 })
 export class AddEmployeeComponent implements OnInit {
-  employeeId!: number;
-  employee!: Employee;
   form!: FormGroup;
   departments: Department[] = [];
   dropdownList: Department[] = [];
@@ -46,6 +48,10 @@ export class AddEmployeeComponent implements OnInit {
     };
   }
 
+  get name(): AbstractControl {
+    return this.form.controls['name'];
+  }
+
   private initForm(): void {
     this.form = this.formBuilder.group({
       id: [''],
@@ -56,36 +62,24 @@ export class AddEmployeeComponent implements OnInit {
 
   onSubmit() {
     this.form.controls['departments'].setValue(this.selectedItems);
-    console.log(this.form.value);
     if (this.form.valid) {
-      this.employeeService.createEmployee(this.form.value).subscribe(
-        (data) => {
-          if (data != null) {
-            var resultData = data;
-            if (resultData != null) {
-              this.toastr.success('created');
-              setTimeout(() => {
-                this.router.navigate(['/employees']);
-              }, 500);
-            }
+      this.employeeService.createEmployee(this.form.value).subscribe({
+        next: (response) => {
+          if (response) {
+            this.toastr.success('created');
+            setTimeout(() => {
+              this.router.navigate(['/employees']);
+            }, 500);
           }
         },
-        (error) => {
-          this.toastr.error(error.message);
+        error: (err) => {
+          this.toastr.error(err.message);
           setTimeout(() => {
             this.router.navigate(['/home']);
           }, 500);
-        }
-      );
+        },
+      });
     }
-  }
-
-  onItemSelect(item: any) {
-    console.log(item);
-  }
-
-  onSelectAll(items: any) {
-    console.log(items);
   }
 
   getAllDepartments() {
@@ -95,7 +89,7 @@ export class AddEmployeeComponent implements OnInit {
     });
   }
 
-  onChange($event: any) {
+  onSelectionChange($event: any) {
     this.selectedItems = $event;
   }
 }

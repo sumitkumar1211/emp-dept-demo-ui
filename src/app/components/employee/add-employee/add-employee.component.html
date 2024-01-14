@@ -13,29 +13,17 @@
       </div>
       <form [formGroup]="form">
         <div class="table-content">
-          <!-- <div class="form-group p-10 row">
-            <div class="col-sm-3">
-              <label for="id" class="p-t-b-10">Id<span class="requiredStar">*</span></label>
-            </div>
-            <div class="col-sm-9">
-              <input formControlName="id" class="form-control" />
-              <div *ngIf="form.controls['id'].errors" class="alert alert-danger validationError">
-                <div [hidden]="!form.controls['id'].errors['required']">Id is required</div>
-              </div>
-            </div>
-          </div> -->
           <div class="form-group p-10 row">
             <div class="col-sm-3">
               <label for="name" class="p-t-b-10">Name<span class="requiredStar">*</span></label>
             </div>
             <div class="col-sm-9">
-              <input formControlName="name" class="form-control" placeholder="Your Name" />
-              <div *ngIf="form.controls['name'].errors" class="alert alert-danger validationError">
-                <div [hidden]="!form.controls['name'].errors['required']">Name is required</div>
+              <input formControlName="name" class="form-control" placeholder="Enter Your Name" />
+              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger validationError">
+                <div [hidden]="!name.errors?.['required']">Name is required</div>
               </div>
             </div>
           </div>
-
           <div class="form-group p-10 row">
             <div class="col-sm-3">
               <label for="name" class="p-t-b-10">Departments<span class="requiredStar">*</span></label>
@@ -51,7 +39,7 @@
                 [selectableGroupAsModel]="false"
                 [closeOnSelect]="false"
                 bindValue="selectedItems"
-                (change)="onChange($event)"
+                (change)="onSelectionChange($event)"
               >
               </ng-select>
             </div>

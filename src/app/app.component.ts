@@ -10,6 +10,6 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   handleHomeClick() {
-    this.router.navigate(['home']);
+    this.router.navigate(['/home']);
   }
 }

@@ -2,8 +2,6 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 @import '~@ng-select/ng-select/themes/default.theme.css';
 
-/* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
-
 /* position */
 .toast-center-center {
   top: 50%;
@@ -197,4 +195,103 @@ button.toast-close-button {
 
 body {
   height: auto;
+}
+
+.container {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+  padding: 0px;
+  margin-top: 2%;
+
+  .table-responsive {
+    margin: 30px 0;
+
+    .table-wrapper {
+      background: #fff;
+      padding: 20px 25px;
+      border-radius: 3px;
+      min-width: 1000px;
+      box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+
+      .table-title {
+        padding-bottom: 15px;
+        background: #7e08ec;
+        color: #fff;
+        padding: 16px 30px;
+        min-width: 100%;
+        margin: -20px -25px 10px;
+        border-radius: 3px 3px 0 0;
+
+        .btn {
+          color: #fff;
+          float: right;
+          font-size: 13px;
+          border: none;
+          min-width: 50px;
+          border-radius: 2px;
+          border: none;
+          outline: none !important;
+          margin-left: 10px;
+          i {
+            float: left;
+            font-size: 21px;
+            margin-right: 5px;
+          }
+          span {
+            float: left;
+            margin-top: 2px;
+          }
+        }
+      }
+
+      .table-content {
+        .center-align {
+          text-align: center;
+        }
+
+        .view {
+          width: 10%;
+        }
+
+        .edit {
+          margin-left: 3%;
+          width: 10%;
+        }
+
+        .delete {
+          margin-left: 3%;
+          width: 10%;
+        }
+
+        select {
+          width: 100%;
+          padding: 0.375rem 0.75rem;
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
+          color: #212529;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #ced4da;
+        }
+
+        .p-10 {
+          padding: 10px;
+        }
+
+        .p-t-b-10 {
+          padding: 10px 0px;
+        }
+
+        .requiredStar {
+          color: red;
+          padding-left: 5px;
+        }
+      }
+
+      .table-footer {
+        text-align: center;
+        padding-top: 15px;
+      }
+    }
+  }
 }
